@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 4d4c7437788af1549b446bde4957c278
+guid: 3338c9ed4ac8baa448c581a9e3d60405
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4751881938678664134
-    second: spr_Blue_slime_hurt_0
+      213: 1925417606565882268
+    second: spr_player_right_attack_0
   - first:
-      213: -4392857921056006237
-    second: spr_Blue_slime_hurt_1
+      213: 1228504236542681798
+    second: spr_player_right_attack_1
   - first:
-      213: -2789353311618695389
-    second: spr_Blue_slime_hurt_2
+      213: 3861819835043493671
+    second: spr_player_right_attack_2
   - first:
-      213: -9141101878117254011
-    second: spr_Blue_slime_hurt_3
+      213: 239768519284618219
+    second: spr_player_right_attack_3
+  - first:
+      213: -291539360863411257
+    second: spr_player_right_attack_4
+  - first:
+      213: -4393288114827582582
+    second: spr_player_right_attack_5
+  - first:
+      213: -1610358376348479289
+    second: spr_player_right_attack_6
+  - first:
+      213: 4108624642752802163
+    second: spr_player_right_attack_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Blue_slime_hurt_0
+      name: spr_player_right_attack_0
       rect:
         serializedVersion: 2
         x: 23
-        y: 22
-        width: 19
-        height: 17
+        y: 17
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6cb4989527312f140800000000000000
-      internalID: 4751881938678664134
+      spriteID: c9964a3ac1578ba10800000000000000
+      internalID: 1925417606565882268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_hurt_1
+      name: spr_player_right_attack_1
       rect:
         serializedVersion: 2
         x: 87
-        y: 22
-        width: 19
-        height: 16
+        y: 17
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3af12b2cefe6903c0800000000000000
-      internalID: -4392857921056006237
+      spriteID: 6c2603028168c0110800000000000000
+      internalID: 1228504236542681798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_hurt_2
+      name: spr_player_right_attack_2
       rect:
         serializedVersion: 2
         x: 151
-        y: 22
-        width: 19
-        height: 18
+        y: 17
+        width: 28
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32f78e311f93a49d0800000000000000
-      internalID: -2789353311618695389
+      spriteID: 727335edda0f79530800000000000000
+      internalID: 3861819835043493671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_hurt_3
+      name: spr_player_right_attack_3
       rect:
         serializedVersion: 2
         x: 215
-        y: 22
-        width: 19
-        height: 17
+        y: 17
+        width: 39
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +202,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58c3a230648442180800000000000000
-      internalID: -9141101878117254011
+      spriteID: be3f74ca234d35300800000000000000
+      internalID: 239768519284618219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_right_attack_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 17
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c321b5fe7e34fbf0800000000000000
+      internalID: -291539360863411257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_right_attack_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 21
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83a1c77cb7e703c0800000000000000
+      internalID: -4393288114827582582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_right_attack_6
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 17
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c09ca8b69bd6a9e0800000000000000
+      internalID: -1610358376348479289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_player_right_attack_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 17
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d62ba1854c40930800000000000000
+      internalID: 4108624642752802163
       vertices: []
       indices: 
       edges: []
@@ -210,10 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Blue_slime_hurt_0: 4751881938678664134
-      spr_Blue_slime_hurt_1: -4392857921056006237
-      spr_Blue_slime_hurt_2: -2789353311618695389
-      spr_Blue_slime_hurt_3: -9141101878117254011
+      spr_player_right_attack_0: 1925417606565882268
+      spr_player_right_attack_1: 1228504236542681798
+      spr_player_right_attack_2: 3861819835043493671
+      spr_player_right_attack_3: 239768519284618219
+      spr_player_right_attack_4: -291539360863411257
+      spr_player_right_attack_5: -4393288114827582582
+      spr_player_right_attack_6: -1610358376348479289
+      spr_player_right_attack_7: 4108624642752802163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
