@@ -89,11 +89,14 @@ public class Sword : MonoBehaviour
 
     public void SwingDownFlipAnimEvent()
     {
-        slashAnim.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-        if (playerController.FacingLeft)
+        if (slashAnim != null)
         {
-            slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+            slashAnim.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            if (playerController.FacingLeft)
+            {
+                slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
     }
 
