@@ -23,9 +23,6 @@ public class PlayerController : Singleton<PlayerController>
     protected override void Awake()
     {
         base.Awake();
-        //private void Awake()
-        //{
-        //    Instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
