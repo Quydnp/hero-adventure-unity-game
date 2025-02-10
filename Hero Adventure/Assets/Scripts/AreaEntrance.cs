@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class AreaEntrance : MonoBehaviour
 {
     [SerializeField] private string transitionName;
@@ -9,6 +10,7 @@ public class AreaEntrance : MonoBehaviour
         {
             PlayerController.Instance.transform.position = this.transform.position;
             CameraController.Instance.SetPlayerCameraFollow();
+            UIFade.Instance.FadeToClear();
         }
     }
 }
