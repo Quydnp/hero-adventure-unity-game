@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    public bool FacingLeft { get { return facingLeft; } }
+    public bool FacingLeft
+    {
+        get { return facingLeft; }
+    }
+
     //public static PlayerController Instance;
 
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float dashSpeed = 4f;
-    [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField]
+    private float moveSpeed = 1f;
 
+    [SerializeField]
+    private float dashSpeed = 4f;
+
+    [SerializeField]
+    private TrailRenderer myTrailRenderer;
+
+    [SerializeField]
+    private Transform weaponCollider;
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -20,6 +31,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -50,6 +62,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
     }
 
     private void PlayerInput()

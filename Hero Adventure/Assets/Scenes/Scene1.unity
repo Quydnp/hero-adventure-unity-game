@@ -18014,7 +18014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f89b4323cf68a4d95e666a57b17427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 2121028237}
 --- !u!1 &1372075823
 GameObject:
   m_ObjectHideFlags: 0
@@ -28122,6 +28121,7 @@ MonoBehaviour:
   moveSpeed: 4
   dashSpeed: 4
   myTrailRenderer: {fileID: 771863975}
+  weaponCollider: {fileID: 365298136}
 --- !u!50 &2066714571
 Rigidbody2D:
   serializedVersion: 5
@@ -28418,7 +28418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slashAnimPrefab: {fileID: 4685897494090953470, guid: 9d4aa4a7f1698094aa368b162858716b, type: 3}
   slashAnimSpawnPoint: {fileID: 1316947018}
-  weaponCollider: {fileID: 365298136}
   swordAttackCD: 0.5
 --- !u!95 &2121028238
 Animator:
