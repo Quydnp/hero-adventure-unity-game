@@ -31,6 +31,7 @@ public class Bow : MonoBehaviour, IWeapon
             ActiveWeapon.Instance.transform.rotation
         );
 
+        newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
     }
 
     public WeaponInfo GetWeaponInfo()
