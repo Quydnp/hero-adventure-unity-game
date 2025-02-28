@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
-    [SerializeField] private MonoBehaviour currentActiveWeapon;
+    public MonoBehaviour CurrentActiveWeapon { get; private set; }
 
     private PlayerControls playerControls;
+    private float timeBetweenAttacks;
 
     private bool attackButtonDown, isAttacking = false;
 
-    protected override void Awake()
-    {
+    protected override void Awake() {
         base.Awake();
 
         playerControls = new PlayerControls();
@@ -28,15 +28,38 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         playerControls.Combat.Attack.canceled += _ => StopAttacking();
 
 
+        AttackCooldown();
     }
-    private void Update()
-    {
+
+    private void Update() {
         Attack();
     }
 
-    public void ToggleIsAttacking(bool value)
+    public void NewWeapon(MonoBehaviour newWeapon) {
+        CurrentActiveWeapon = newWeapon;
+        attackButtonDown = false;
+        isAttacking = false;
+
+        AttackCooldown();
+        timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo().weaponCooldown;
+    }
+
+    public void WeaponNull() {
+        CurrentActiveWeapon = null;
+    }
+
+    private void AttackCooldown()
     {
-        isAttacking = value;
+        isAttacking = true;
+        StopAllCoroutines();
+        StartCoroutine(TimeBetweenAttacksRoutine());
+    }
+
+
+    private IEnumerator TimeBetweenAttacksRoutine()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        isAttacking = false;
     }
 
     private void StartAttacking()
@@ -49,12 +72,10 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         attackButtonDown = false;
     }
 
-    private void Attack()
-    {
-        if (attackButtonDown && !isAttacking)
-        {
-            isAttacking = true;
-            (currentActiveWeapon as IWeapon).Attack();
+    private void Attack() {
+        if (attackButtonDown && !isAttacking) {
+            AttackCooldown();
+            (CurrentActiveWeapon as IWeapon).Attack();
         }
     }
 }
