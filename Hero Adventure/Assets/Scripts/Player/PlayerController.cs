@@ -4,29 +4,20 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    public bool FacingLeft
-    {
-        get { return facingLeft; }
-    }
+    public bool FacingLeft { get { return facingLeft; } }
 
-    //public static PlayerController Instance;
 
-    [SerializeField]
-    private float moveSpeed = 1f;
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float dashSpeed = 4f;
+    [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
 
-    [SerializeField]
-    private float dashSpeed = 4f;
-
-    [SerializeField]
-    private TrailRenderer myTrailRenderer;
-
-    [SerializeField]
-    private Transform weaponCollider;
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRender;
+    private Knockback knockback;
     private float startingMoveSpeed;
 
     private bool facingLeft = false;
@@ -35,10 +26,12 @@ public class PlayerController : Singleton<PlayerController>
     protected override void Awake()
     {
         base.Awake();
+
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mySpriteRender = GetComponent<SpriteRenderer>();
+        knockback = GetComponent<Knockback>();
     }
 
     private void Start()
@@ -79,6 +72,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
+        if (knockback.GettingKnockedBack) { return; }
+
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
