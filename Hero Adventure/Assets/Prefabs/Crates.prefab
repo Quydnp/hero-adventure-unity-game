@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4396118152371359680}
   - component: {fileID: 3163367962244305604}
   - component: {fileID: 8333865302034408345}
+  - component: {fileID: 6071790646614388160}
   m_Layer: 0
   m_Name: Crates
   m_TagString: Untagged
@@ -139,3 +140,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyVFX: {fileID: 7187081238695605567, guid: 12dba37c15ddfe24b8ac1ff8bcebccae, type: 3}
+--- !u!114 &6071790646614388160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113205109634777672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dd2df9531d67c428e988418270d915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goinCoinPrefab: {fileID: 1415593223259992465, guid: f630e5673903d874eba303d4e39ff76c, type: 3}
