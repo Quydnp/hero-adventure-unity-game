@@ -11474,7 +11474,7 @@ Transform:
   m_GameObject: {fileID: 619394800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15817,11 +15817,11 @@ PrefabInstance:
       objectReference: {fileID: 955760306}
     - target: {fileID: 1281425315958995411, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2230096
+      value: -0.01418376
       objectReference: {fileID: 0}
     - target: {fileID: 1281425315958995411, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71404
+      value: 0.73683
       objectReference: {fileID: 0}
     - target: {fileID: 5122399234749393981, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_Name
@@ -31430,10 +31430,6 @@ PrefabInstance:
     - target: {fileID: 1113205109634777672, guid: 0150d29e6139ec541aec442b6afc724f, type: 3}
       propertyPath: m_Name
       value: Bush
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396118152371359680, guid: 0150d29e6139ec541aec442b6afc724f, type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
