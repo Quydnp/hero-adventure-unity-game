@@ -15817,11 +15817,11 @@ PrefabInstance:
       objectReference: {fileID: 955760306}
     - target: {fileID: 1281425315958995411, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01418376
+      value: 1.0248706
       objectReference: {fileID: 0}
     - target: {fileID: 1281425315958995411, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.73683
+      value: 0.72624
       objectReference: {fileID: 0}
     - target: {fileID: 5122399234749393981, guid: 40c3e47a1fc9821419effc8e161fa177, type: 3}
       propertyPath: m_Name
@@ -20650,6 +20650,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -16.5634
+      objectReference: {fileID: 0}
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8.6562
+      objectReference: {fileID: 0}
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.7374
+      objectReference: {fileID: 0}
+    - target: {fileID: 179707997999670914, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.1420002
+      objectReference: {fileID: 0}
     - target: {fileID: 503738655270465599, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -20782,6 +20806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6723763467035429389, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_Value
+      value: 3.96
+      objectReference: {fileID: 0}
     - target: {fileID: 6958534622817102134, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -20893,6 +20921,10 @@ PrefabInstance:
     - target: {fileID: 8455247629675664998, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202082058563134456, guid: b29e5467d3569ea4593db7c87f6fddd6, type: 3}
+      propertyPath: m_Name
+      value: Health Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
