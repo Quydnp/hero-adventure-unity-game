@@ -23,17 +23,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Save()
     {
-
+        PlayerController.Instance.SaveGame();
     }
 
     public void Mute()
     {
-
+        AudioListener.volume = (AudioListener.volume == 0) ? 1 : 0;
+        Debug.Log("Mute: " + (AudioListener.volume == 0 ? "ON" : "OFF"));
     }
 
     public void Shop()
     {
-
+        // TODO: Implement shop
     }
 
 }
