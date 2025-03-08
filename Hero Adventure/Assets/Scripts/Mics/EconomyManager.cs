@@ -8,6 +8,16 @@ public class EconomyManager : Singleton<EconomyManager>
 
     const string COIN_AMOUNT_TEXT = "Gold Amount Text";
 
+    public int CurrentGold { get { return currentGold; }}
+    public void SetCurrentGold(int value) 
+    { 
+        currentGold = value;
+        if (goldText == null)
+        {
+            goldText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();
+        }
+        goldText.text = currentGold.ToString("D3");
+    }
     public void UpdateCurrentGold()
     {
         currentGold += 1;

@@ -14,6 +14,17 @@ public class Stamina : Singleton<Stamina>
     private int maxStamina = 3;
     const string STAMINA_CONTAINER_TEXT = "Stamina Container";
 
+    public void SetMaxStamina(int newMaxStamina) 
+    { 
+        maxStamina = newMaxStamina; 
+        UpdateStaminaImages();
+    }
+    public void SetCurrentStamina(int newCurrentStamina) 
+    { 
+        CurrentStamina = newCurrentStamina; 
+        UpdateStaminaImages();
+    }
+
     protected override void Awake()
     {
         base.Awake();

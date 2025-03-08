@@ -17,6 +17,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
 
+    public int CurrentHealth { get { return currentHealth; } }
+    public int MaxHealth { get { return maxHealth; } }
+    public void SetMaxHealth(int newMaxHealth) 
+    { 
+        maxHealth = newMaxHealth; 
+        UpdateHealthSlider();
+    }
+    public void SetCurrentHealth(int newCurrentHealth) 
+    { 
+        currentHealth = newCurrentHealth;
+        UpdateHealthSlider();
+    }
+
     protected override void Awake()
     {
         base.Awake();
