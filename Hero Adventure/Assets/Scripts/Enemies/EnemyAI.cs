@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
         {
 
             canAttack = false;
-            (enemyType as IEnemy).Attack();
+            if (enemyType is Shooter) (enemyType as IEnemy).Attack();
 
             if (stopMovingWhileAttacking)
             {
