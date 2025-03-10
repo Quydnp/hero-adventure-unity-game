@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: cb9f6f0f899359b4cbc98ed69880b5c8
+guid: 24cefbf02e8cbea40b3cd454fea8bf36
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3341093529323198379
-    second: spr_player_right_hit_0
-  - first:
-      213: -6375839425098158413
-    second: spr_player_right_hit_1
-  - first:
-      213: -7931111939729201523
-    second: spr_player_right_hit_2
-  - first:
-      213: 5922747424731439311
-    second: spr_player_right_hit_3
+      213: -8720929086273843191
+    second: istockphoto-1325433246-640x640_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_player_right_hit_0
+      name: istockphoto-1325433246-640x640_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 768
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba75aa0fcd2fd5e20800000000000000
-      internalID: 3341093529323198379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_right_hit_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bee712d2d77487a0800000000000000
-      internalID: -6375839425098158413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_right_hit_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d86e49e26b70fe190800000000000000
-      internalID: -7931111939729201523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_player_right_hit_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc02a791763d13250800000000000000
-      internalID: 5922747424731439311
+      spriteID: 9009645933909f680800000000000000
+      internalID: -8720929086273843191
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 56eaf06b292f7bd4d9fe28ef5a6fedc4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      spr_player_right_hit_0: 3341093529323198379
-      spr_player_right_hit_1: -6375839425098158413
-      spr_player_right_hit_2: -7931111939729201523
-      spr_player_right_hit_3: 5922747424731439311
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
