@@ -9,6 +9,7 @@ public class MouseFollow : MonoBehaviour
 
     private void FaceMouse()
     {
+        if (Time.timeScale == 0f) return;
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 

@@ -75,6 +75,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void MouseFollowWithOffset()
     {
+        if (Time.timeScale == 0f) return;
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(
             PlayerController.Instance.transform.position

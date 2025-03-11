@@ -69,4 +69,9 @@ public class Stamina : Singleton<Stamina>
             StartCoroutine(RefreshStaminaRoutine());
         }
     }
+    public void ResetStamina()
+    {
+        CurrentStamina = maxStamina;
+        UpdateStaminaImages();
+    }
 }

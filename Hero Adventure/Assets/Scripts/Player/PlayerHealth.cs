@@ -21,7 +21,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Vector3 spawnPosition;
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
-    const string TOWN_TEXT = "Scene1";
+    const string SCENE_TEXT = "Scene1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake()
@@ -112,19 +112,31 @@ public class PlayerHealth : Singleton<PlayerHealth>
         isDead = false;
         currentHealth = maxHealth;
         UpdateHealthSlider();
+        
 
         GetComponent<Animator>().Rebind();
         GetComponent<Animator>().Update(0f);
 
         EconomyManager.Instance.ResetGold();
         ScoreManager.Instance.ResetScore();
+        Stamina.Instance.ResetStamina();
 
         gameOverPanel.SetActive(false);
-        SceneManager.LoadScene(TOWN_TEXT);
+        SceneManager.LoadScene(SCENE_TEXT);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
 
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == SCENE_TEXT)
+        {
+            CameraController.Instance.SetPlayerCameraFollow();
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
 
+    }
     private IEnumerator DamageRecoveryRoutine()
     {
         yield return new WaitForSeconds(damageRecoveryTime);
