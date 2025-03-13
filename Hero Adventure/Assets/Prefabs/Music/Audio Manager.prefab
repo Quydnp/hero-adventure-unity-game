@@ -179,10 +179,13 @@ MonoBehaviour:
   vfxAudioSource: {fileID: 4602527193313641324}
   musicClip: {fileID: 8300000, guid: 24afe604f25189441ae2e688fff04d5b, type: 3}
   coinClip: {fileID: 8300000, guid: c412df85792e0f34fb6b956cab500826, type: 3}
-  healthClip: {fileID: 0}
-  staminaClip: {fileID: 0}
+  healthClip: {fileID: 8300000, guid: c412df85792e0f34fb6b956cab500826, type: 3}
+  staminaClip: {fileID: 8300000, guid: c412df85792e0f34fb6b956cab500826, type: 3}
   winClip: {fileID: 8300000, guid: be8c7b55db006a3408ef5a30c1c291a8, type: 3}
-  KillClip: {fileID: 0}
+  killClip: {fileID: 8300000, guid: ff20be5c75f65e541a55646c494364ff, type: 3}
+  swordClip: {fileID: 8300000, guid: d62a7b923ab86594dab9a1786f97439e, type: 3}
+  bowClip: {fileID: 8300000, guid: 99810099a44bfb441ab59c22f9d9690e, type: 3}
+  hitClip: {fileID: 8300000, guid: c6662dddfd772864f9b302f26cce4425, type: 3}
 --- !u!1 &5181002056899360108
 GameObject:
   m_ObjectHideFlags: 0
