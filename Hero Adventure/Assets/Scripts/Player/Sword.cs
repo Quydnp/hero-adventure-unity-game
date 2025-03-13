@@ -25,13 +25,15 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Start()
     {
+        GameObject weapon = GameObject.Find("Active Weapon");
+        weapon.GetComponent<MouseFollow>().enabled = false;
         weaponCollider = PlayerController.Instance.GetWeaponCollider();
         slashAnimSpawnPoint = GameObject.Find("SlashSpawnPoint").transform;
     }
 
     private void Update()
     {
-        MouseFollowWithOffset();
+        if (!PauseMenu.isPaused) MouseFollowWithOffset();
     }
 
     public void Attack()

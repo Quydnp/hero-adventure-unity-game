@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -16,15 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        if (PlayerController.Instance != null)
-        {
-            PlayerController.Instance.LoadGame();
-        }
-        else
-        {
-            SceneManager.LoadScene("Scene1");
-            PlayerController.Instance.LoadGame();
-        }
+        SaveSystem.Instance.Load();
     }
 
     public void Quit()

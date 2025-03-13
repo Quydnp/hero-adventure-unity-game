@@ -1,19 +1,32 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject weapon;
+    public static bool isPaused = false;
     public void Pause()
     {
         pauseMenu.SetActive(true);
+        isPaused = true;
         Time.timeScale = 0f;
+
+        weapon.GetComponent<MouseFollow>().enabled = false;
+
+        PlayerController.Instance.UnableControls();
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        isPaused = false;
         Time.timeScale = 1f;
+
+        if (ActiveWeapon.Instance.CurrentActiveWeapon is Bow) weapon.GetComponent<MouseFollow>().enabled = true;
+
+        PlayerController.Instance.EnableControls();
     }
 
     public void Home()

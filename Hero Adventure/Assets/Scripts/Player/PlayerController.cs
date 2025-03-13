@@ -1,7 +1,4 @@
-using Assets.Scripts.Management;
-using Assets.Scripts.Player;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -57,6 +54,16 @@ public class PlayerController : Singleton<PlayerController>
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public void UnableControls()
+    {
+        playerControls.Disable();
+    }
+
+    public void EnableControls()
+    {
+        playerControls.Enable();
     }
 
     public Transform GetWeaponCollider()
@@ -121,15 +128,6 @@ public class PlayerController : Singleton<PlayerController>
 
     public void SaveGame()
     {
-        SaveSystem.SavePlayer(transform.position);
-    }
-
-    public void LoadGame()
-    {
-        PlayerData data = SaveSystem.LoadPlayer();
-        if (data != null)
-        {
-            transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-        }
+        SaveSystem.Instance.Save(transform.position);
     }
 }

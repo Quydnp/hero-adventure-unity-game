@@ -1,61 +1,71 @@
-﻿using Assets.Scripts.Player;
+﻿using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Management
+public class SaveSystem : Singleton<SaveSystem>
 {
-    public static class SaveSystem
+    private static string path = Application.dataPath + "/GameData/playerData.json";
+
+    protected override void Awake()
     {
-        private static string path = Application.dataPath + "/GameData/playerData.json";
+        base.Awake();
+    }
 
-        public static void SavePlayer(Vector3 position)
+    public void Save(Vector3 playerPosition)
+    {
+        string directory = Path.GetDirectoryName(path);
+
+        if (!Directory.Exists(directory))
         {
-            string directory = Path.GetDirectoryName(path);
-
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-                Debug.Log("Created directory: " + directory);
-            }
-
-            PlayerData data = new PlayerData(position)
-            {
-                currentHealth = PlayerHealth.Instance.CurrentHealth,
-                maxHealth = PlayerHealth.Instance.MaxHealth,
-                currentStamina = Stamina.Instance.CurrentStamina,
-                coin = EconomyManager.Instance.CurrentGold,
-                sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
-            };
-
-            string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(path, json);
-            Debug.Log("Game Saved: " + path);
+            Directory.CreateDirectory(directory);
+            Debug.Log("Created directory: " + directory);
         }
 
-        public static PlayerData LoadPlayer()
+        PlayerData data = new PlayerData(playerPosition)
         {
-            if (File.Exists(path))
-            {
-                string json = File.ReadAllText(path);
-                PlayerData data = JsonUtility.FromJson<PlayerData>(json);
+            currentHealth = PlayerHealth.Instance.CurrentHealth,
+            maxHealth = PlayerHealth.Instance.MaxHealth,
+            currentStamina = Stamina.Instance.CurrentStamina,
+            coin = EconomyManager.Instance.CurrentGold,
+            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+        };
 
-                PlayerHealth.Instance.SetCurrentHealth(data.currentHealth);
-                PlayerHealth.Instance.SetMaxHealth(data.maxHealth);
-                Stamina.Instance.SetCurrentStamina(data.currentStamina);
-                EconomyManager.Instance.SetCurrentGold(data.coin);
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(path, json);
+        Debug.Log("Game Saved: " + path);
+    }
 
+    public void Load()
+    {
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
-                SceneManager.LoadScene(data.sceneName);
+            Debug.Log("Game Loaded!");
+            StartCoroutine(LoadSceneAndRestore(data));
+        }
+        else
+        {
+            Debug.LogWarning("No save file found!");
+        }
+    }
 
-                Debug.Log("Game Loaded!");
-                return data;
-            }
-            else
-            {
-                Debug.LogWarning("No save file found!");
-                return null;
-            }
+    private IEnumerator LoadSceneAndRestore(PlayerData data)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(data.sceneName);
+        yield return new WaitUntil(() => asyncLoad.isDone);
+
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+
+        if (player != null)
+        {
+            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+            PlayerHealth.Instance.SetCurrentHealth(data.currentHealth);
+            PlayerHealth.Instance.SetMaxHealth(data.maxHealth);
+            Stamina.Instance.SetCurrentStamina(data.currentStamina);
+            EconomyManager.Instance.SetCurrentGold(data.coin);
         }
     }
 }
