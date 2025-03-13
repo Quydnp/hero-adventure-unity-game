@@ -24,6 +24,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string SCENE_TEXT = "Scene1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
+    public int CurrentHealth { get { return currentHealth; } }
+    public int MaxHealth { get { return maxHealth; } }
+    public void SetMaxHealth(int newMaxHealth) 
+    { 
+        maxHealth = newMaxHealth; 
+        UpdateHealthSlider();
+    }
+    public void SetCurrentHealth(int newCurrentHealth) 
+    { 
+        currentHealth = newCurrentHealth;
+        UpdateHealthSlider();
+    }
+
     protected override void Awake()
     {
         base.Awake();

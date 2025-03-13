@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -58,7 +57,18 @@ public class PlayerController : Singleton<PlayerController>
         Move();
     }
 
-    public Transform GetWeaponCollider() {
+    public void UnableControls()
+    {
+        playerControls.Disable();
+    }
+
+    public void EnableControls()
+    {
+        playerControls.Enable();
+    }
+
+    public Transform GetWeaponCollider()
+    {
         return weaponCollider;
     }
 
@@ -106,5 +116,10 @@ public class PlayerController : Singleton<PlayerController>
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.Instance.Save(transform.position);
     }
 }
