@@ -21,9 +21,11 @@ public class Sword : MonoBehaviour, IWeapon
 
     private GameObject slashAnim;
 
+    private AudioManager audioManager;
     private void Awake()
     {
         myAnimator = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void Start()
@@ -43,6 +45,7 @@ public class Sword : MonoBehaviour, IWeapon
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
+        audioManager.PlaySFX(audioManager.swordClip);
     }
 
     public void DoneAttackingAnimEvent()
