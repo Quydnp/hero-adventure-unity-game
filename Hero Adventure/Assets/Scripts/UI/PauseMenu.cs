@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
 
-        if (ActiveWeapon.Instance.CurrentActiveWeapon is Bow) weapon.GetComponent<MouseFollow>().enabled = true;
+        weapon.GetComponent<MouseFollow>().enabled = true;
 
         PlayerController.Instance.EnableControls();
     }

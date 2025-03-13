@@ -28,6 +28,7 @@ public class SaveSystem : Singleton<SaveSystem>
             maxHealth = PlayerHealth.Instance.MaxHealth,
             currentStamina = Stamina.Instance.CurrentStamina,
             coin = EconomyManager.Instance.CurrentGold,
+            point = ScoreManager.Instance.CurrentScore,
             sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
         };
 
@@ -66,6 +67,7 @@ public class SaveSystem : Singleton<SaveSystem>
             PlayerHealth.Instance.SetMaxHealth(data.maxHealth);
             Stamina.Instance.SetCurrentStamina(data.currentStamina);
             EconomyManager.Instance.SetCurrentGold(data.coin);
+            ScoreManager.Instance.SetCurrentScore(data.point);
         }
     }
 }

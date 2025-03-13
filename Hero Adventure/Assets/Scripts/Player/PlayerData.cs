@@ -8,7 +8,7 @@ public class PlayerData
     public int maxHealth;
     public int currentStamina;
     public int coin;
-    // public int point;
+    public int point;
     public string sceneName;
     public float[] position; // [x, y, z]
 

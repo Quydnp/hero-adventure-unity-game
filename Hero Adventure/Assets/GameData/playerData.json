@@ -1,12 +1,13 @@
 {
-    "currentHealth": 3,
+    "currentHealth": 1,
     "maxHealth": 3,
-    "currentStamina": 3,
-    "coin": 0,
+    "currentStamina": 1,
+    "coin": 8,
+    "point": 3,
     "sceneName": "Scene1",
     "position": [
-        -0.3508830666542053,
-        0.6802960634231567,
+        1.5901055335998536,
+        9.707145690917969,
         0.0
     ]
 }

@@ -27,15 +27,8 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Start()
     {
-        GameObject weapon = GameObject.Find("Active Weapon");
-        weapon.GetComponent<MouseFollow>().enabled = false;
         weaponCollider = PlayerController.Instance.GetWeaponCollider();
         slashAnimSpawnPoint = GameObject.Find("SlashSpawnPoint").transform;
-    }
-
-    private void Update()
-    {
-        if (!PauseMenu.isPaused) MouseFollowWithOffset();
     }
 
     public void Attack()
@@ -72,28 +65,6 @@ public class Sword : MonoBehaviour, IWeapon
             {
                 slashAnim.GetComponent<SpriteRenderer>().flipX = true;
             }
-        }
-    }
-
-    private void MouseFollowWithOffset()
-    {
-        if (Time.timeScale == 0f) return;
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(
-            PlayerController.Instance.transform.position
-        );
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-
-        if (mousePos.x < playerScreenPoint.x)
-        {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
-        }
-        else
-        {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
