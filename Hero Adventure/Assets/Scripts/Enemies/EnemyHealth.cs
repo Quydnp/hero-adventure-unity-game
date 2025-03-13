@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,6 +44,18 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            int scoreToAdd = 0;
+            if (gameObject.CompareTag("Slime"))
+            {
+                scoreToAdd = 1; 
+            }
+            else if (gameObject.CompareTag("Ghost"))
+            {
+                scoreToAdd = 2;
+            }
+
+            ScoreManager.Instance.AddScore(scoreToAdd);
+
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             audioManager.PlaySFX(audioManager.killClip);
             GetComponent<PickUpSpawner>().DropItems();
