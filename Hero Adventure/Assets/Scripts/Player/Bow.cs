@@ -11,10 +11,12 @@ public class Bow : MonoBehaviour, IWeapon
     readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
     private Animator myAnimator;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         myAnimator = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void Attack()
@@ -22,6 +24,7 @@ public class Bow : MonoBehaviour, IWeapon
         myAnimator.SetTrigger(FIRE_HASH);
         GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
         newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        audioManager.PlaySFX(audioManager.bowClip);
     }
 
     public WeaponInfo GetWeaponInfo()
