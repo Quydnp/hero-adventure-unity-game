@@ -20,12 +20,13 @@ public class Pickup : MonoBehaviour
 
     private Vector3 moveDir;
     private Rigidbody2D rb;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-
     private void Start()
     {
         StartCoroutine(AnimCurveSpawnRoutine());
@@ -57,7 +58,9 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>())
         {
             DetectPickupType();
+            audioManager.PlaySFX(audioManager.coinClip);
             Destroy(gameObject);
+
         }
     }
 
