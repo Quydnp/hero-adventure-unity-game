@@ -8,6 +8,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private PlayerControls playerControls;
 
+    public bool IsBoughtBowWeapon { get; set; } = false;
     protected override void Awake()
     {
         base.Awake();
@@ -60,6 +61,13 @@ public class ActiveInventory : Singleton<ActiveInventory>
         Transform childTransform = transform.GetChild(activeSlotIndexNum);
         InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
         WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+        if(weaponInfo.weaponPrefab.name == "Bow")
+        {
+
+
+            Debug.Log("Bow weapon");
+            if (!IsBoughtBowWeapon) return;
+        }
         GameObject weaponToSpawn = weaponInfo.weaponPrefab;
 
         if (weaponInfo == null)

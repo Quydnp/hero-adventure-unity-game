@@ -28,9 +28,16 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public int MaxHealth { get { return maxHealth; } }
     public void SetMaxHealth(int newMaxHealth) 
     { 
-        maxHealth = newMaxHealth; 
+        maxHealth = newMaxHealth;
         UpdateHealthSlider();
     }
+
+    public void SetMaxHealthWithoutUpdateUI(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+        //UpdateHealthSlider();
+    }
+
     public void SetCurrentHealth(int newCurrentHealth) 
     { 
         currentHealth = newCurrentHealth;

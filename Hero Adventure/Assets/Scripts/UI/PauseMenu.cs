@@ -1,12 +1,21 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject weapon;
+    [SerializeField]
+    GameObject pauseMenu;
+
+    [SerializeField]
+    GameObject weapon;
+
+    [SerializeField]
+    Transform shopItemTemplate;
+
     public static bool isPaused = false;
+
     public void Pause()
     {
         pauseMenu.SetActive(true);
@@ -25,7 +34,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         weapon.GetComponent<MouseFollow>().enabled = true;
-
+        shopItemTemplate.gameObject.SetActive(false);
         PlayerController.Instance.EnableControls();
     }
 
@@ -48,6 +57,13 @@ public class PauseMenu : MonoBehaviour
     public void Shop()
     {
         // TODO: Implement shop
+        if (shopItemTemplate.gameObject.active)
+        {
+            shopItemTemplate.gameObject.SetActive(false);
+        }
+        else
+        {
+            shopItemTemplate.gameObject.SetActive(true);
+        }
     }
-
 }
