@@ -19,11 +19,10 @@ public class Shop : MonoBehaviour
     {
         if (EconomyManager.Instance.CurrentGold > 0)
         {
-            Debug.Log("Click BuyHealth");
             EconomyManager.Instance.MinusCurrentGold(1);
             PlayerHealth.Instance.SetMaxHealthWithoutUpdateUI(PlayerHealth.Instance.MaxHealth + 1);
             PlayerHealth.Instance.SetCurrentHealth(PlayerHealth.Instance.CurrentHealth + 1);
-            Debug.Log(PlayerHealth.Instance.MaxHealth + "Max health");
+            Debug.Log("Max health: " + PlayerHealth.Instance.MaxHealth);
         }
         else
         {
@@ -36,7 +35,7 @@ public class Shop : MonoBehaviour
         _sprite = sprite;
     }
 
-    public void BuyBowWeapon(Image spriteWeapon)
+    public void BuyBowWeapon()
     {
         if (EconomyManager.Instance.CurrentGold >= 5 && !ActiveInventory.Instance.IsBoughtBowWeapon)
         {
@@ -46,9 +45,10 @@ public class Shop : MonoBehaviour
 
                 return;
             }
+            Debug.Log(EconomyManager.Instance.CurrentGold);
             ActiveInventory.Instance.IsBoughtBowWeapon = true;
             EconomyManager.Instance.MinusCurrentGold(5);
-            spriteWeapon.sprite = _sprite;
+            ActiveInventory.Instance.SetInventoryActiveByIndex(1);
         }
         else
         {

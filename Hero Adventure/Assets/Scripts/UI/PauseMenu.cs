@@ -14,12 +14,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     Transform shopItemTemplate;
 
-    public static bool isPaused = false;
-
     public void Pause()
     {
         pauseMenu.SetActive(true);
-        isPaused = true;
         Time.timeScale = 0f;
 
         weapon.GetComponent<MouseFollow>().enabled = false;
@@ -30,7 +27,6 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenu.SetActive(false);
-        isPaused = false;
         Time.timeScale = 1f;
 
         weapon.GetComponent<MouseFollow>().enabled = true;
@@ -56,8 +52,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Shop()
     {
-        // TODO: Implement shop
-        if (shopItemTemplate.gameObject.active)
+        if (shopItemTemplate.gameObject.activeSelf)
         {
             shopItemTemplate.gameObject.SetActive(false);
         }

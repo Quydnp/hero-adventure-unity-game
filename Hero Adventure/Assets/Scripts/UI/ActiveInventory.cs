@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -83,5 +84,58 @@ public class ActiveInventory : Singleton<ActiveInventory>
         //newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+    }
+
+    public IEnumerable<string> GetWeaponNames()
+    {
+        foreach (Transform child in this.transform)
+        {
+            InventorySlot inventorySlot = child.GetComponentInChildren<InventorySlot>();
+            if (inventorySlot != null)
+            {
+                WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+                if (weaponInfo != null && weaponInfo.weaponPrefab != null)
+                {
+                    if (weaponInfo.weaponPrefab.name == "Bow")
+                    {
+                        if (IsBoughtBowWeapon)
+                        {
+                            yield return weaponInfo.weaponPrefab.name;
+                        }
+                    }
+                    else
+                        yield return weaponInfo.weaponPrefab.name;
+                }
+            }
+        }
+    }
+
+    public void SetInventoryActiveByIndex(int slotNum)
+    {
+        Transform childTransform = transform.GetChild(slotNum);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+        if (weaponInfo.weaponPrefab.name == "Bow")
+        {
+
+
+            IsBoughtBowWeapon = true;
+        }
+        Transform item = childTransform.GetChild(1);
+        item.gameObject.SetActive(true);
+        ToggleActiveHighlight(slotNum);
+    }
+
+    public void SetInventoryInactiveByIndex(int slotNum)
+    {
+        Transform childTransform = transform.GetChild(slotNum);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
+        if (weaponInfo.weaponPrefab.name == "Bow")
+        {
+            IsBoughtBowWeapon = false;
+        }
+        Transform item = childTransform.GetChild(1);
+        item.gameObject.SetActive(false);
     }
 }

@@ -11,8 +11,8 @@ public class UI_Shop : MonoBehaviour
     private Transform health;
     private void Awake()
     {
-        container = transform.Find("container");
-        shopItemTemplate = container.Find("shopItemTemplate");
+        container = transform.Find("Container");
+        shopItemTemplate = container.Find("ShopItemTemplate");
         bow = shopItemTemplate.Find("Bow");
         stamina = shopItemTemplate.Find("Stamina");
         health = shopItemTemplate.Find("Health");

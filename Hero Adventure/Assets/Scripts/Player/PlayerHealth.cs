@@ -145,7 +145,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
         SceneManager.LoadScene(SCENE_TEXT);
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-
+        // Reset inventory
+        ActiveInventory.Instance.SetInventoryInactiveByIndex(1);
+        ActiveInventory.Instance.SetInventoryActiveByIndex(0);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
