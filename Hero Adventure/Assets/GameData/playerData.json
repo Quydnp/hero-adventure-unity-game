@@ -1,13 +1,17 @@
 {
-    "currentHealth": 1,
+    "currentHealth": 3,
     "maxHealth": 3,
-    "currentStamina": 1,
-    "coin": 8,
-    "point": 3,
-    "sceneName": "Scene1",
+    "currentStamina": 3,
+    "coin": 0,
+    "point": 0,
+    "sceneName": "Scene2",
     "position": [
-        1.5901055335998536,
-        9.707145690917969,
+        11.530000686645508,
+        -5.619999885559082,
         0.0
+    ],
+    "weapons": [
+        "Sword",
+        "Bow"
     ]
 }

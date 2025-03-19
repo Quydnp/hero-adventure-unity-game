@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,8 @@ public class SaveSystem : Singleton<SaveSystem>
             Debug.Log("Created directory: " + directory);
         }
 
+        string[] weapons = ActiveInventory.Instance.GetWeaponNames().ToArray();
+
         PlayerData data = new PlayerData(playerPosition)
         {
             currentHealth = PlayerHealth.Instance.CurrentHealth,
@@ -30,11 +33,13 @@ public class SaveSystem : Singleton<SaveSystem>
             coin = EconomyManager.Instance.CurrentGold,
             point = ScoreManager.Instance.CurrentScore,
             sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            weapons = weapons
         };
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(path, json);
         Debug.Log("Game Saved: " + path);
+        Debug.Log("Weapons: " + string.Join("-", data.weapons));
     }
 
     public void Load()
@@ -68,6 +73,20 @@ public class SaveSystem : Singleton<SaveSystem>
             Stamina.Instance.SetCurrentStamina(data.currentStamina);
             EconomyManager.Instance.SetCurrentGold(data.coin);
             ScoreManager.Instance.SetCurrentScore(data.point);
+            if (data.weapons != null)
+            {
+                for (int i = 0; i < data.weapons.Length; i++)
+                {
+                    ActiveInventory.Instance.SetInventoryActiveByIndex(i);
+                }
+            }
+        }
+
+        // Pause the game after loading the scene
+        PauseMenu pauseMenu = FindFirstObjectByType<PauseMenu>();
+        if (pauseMenu != null)
+        {
+            pauseMenu.Pause();
         }
     }
 }

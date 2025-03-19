@@ -11,6 +11,7 @@ public class PlayerData
     public int point;
     public string sceneName;
     public float[] position; // [x, y, z]
+    public string[] weapons;
 
     public PlayerData(Vector3 position)
     {

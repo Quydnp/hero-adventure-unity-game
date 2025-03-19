@@ -19,6 +19,20 @@ public class Stamina : Singleton<Stamina>
         maxStamina = newMaxStamina; 
         UpdateStaminaImages();
     }
+
+
+    public void SetMaxStaminaWithoutUpdateUI(int newMaxStamina)
+    {
+        maxStamina = newMaxStamina;
+      
+    }
+
+
+
+    public int getMaxStamina()
+    {
+        return maxStamina;
+    }
     public void SetCurrentStamina(int newCurrentStamina) 
     { 
         CurrentStamina = newCurrentStamina; 
