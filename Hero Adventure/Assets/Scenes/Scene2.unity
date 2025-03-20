@@ -29086,11 +29086,11 @@ PrefabInstance:
       objectReference: {fileID: 1256451446324855296, guid: 956f7c6ee5eebf6419774779dab8f14b, type: 3}
     - target: {fileID: 932617779203484070, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
       propertyPath: _maximumSpawnTime
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 932617779203484070, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
       propertyPath: _minimumSpawnTime
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3180319889997687985, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
       propertyPath: m_Name

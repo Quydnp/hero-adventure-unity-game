@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _timeUntilSpawn;
 
+    private int _spawnCount = 0; // Đếm số lượng enemy đã spawn
+    private int _maxSpawnCount = 10; // Số lượng enemy tối đa trước khi hủy spawner
+
     void Awake()
     {
         SetTimeUntilSpawn();
@@ -21,12 +24,26 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        _timeUntilSpawn -= Time.deltaTime; // Decrease time instead of resetting it
+        _timeUntilSpawn -= Time.deltaTime;
 
         if (_timeUntilSpawn <= 0)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-            SetTimeUntilSpawn(); // Reset spawn timer
+            SpawnEnemy();
+        }
+    }
+
+    private void SpawnEnemy()
+    {
+        Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+        _spawnCount++; // Tăng bộ đếm số enemy đã spawn
+
+        if (_spawnCount >= _maxSpawnCount)
+        {
+            Destroy(gameObject); // Xóa Spawner sau khi spawn đủ 10 enemy
+        }
+        else
+        {
+            SetTimeUntilSpawn(); // Reset bộ đếm spawn nếu chưa đủ số lượng
         }
     }
 
