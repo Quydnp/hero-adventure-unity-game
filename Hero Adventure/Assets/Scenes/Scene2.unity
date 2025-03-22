@@ -12077,9 +12077,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2166000067236916753, guid: 57c26e85d1029c949b55b54ead45250d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5926024718297276140}
-    - targetCorrespondingSourceObject: {fileID: 2166000067236916753, guid: 57c26e85d1029c949b55b54ead45250d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1790586992}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c26e85d1029c949b55b54ead45250d, type: 3}
 --- !u!4 &604218108 stripped
@@ -29084,7 +29081,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 604218108}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 932617779203484070, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
       propertyPath: _enemyPrefab
@@ -29147,11 +29144,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
---- !u!4 &1790586992 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7474264269530937951, guid: 96b3998bf432c2b49a21d9392aeef82e, type: 3}
-  m_PrefabInstance: {fileID: 1790586991}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2025502654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34855,3 +34847,4 @@ SceneRoots:
   - {fileID: 955760305}
   - {fileID: 1444497648}
   - {fileID: 734381996}
+  - {fileID: 1790586991}
