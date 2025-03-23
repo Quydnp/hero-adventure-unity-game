@@ -75,6 +75,7 @@ public class PlayerController : Singleton<PlayerController>
     private void PlayerInput() {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
+        Debug.Log("moveX: " + movement.x + ", moveY: " + movement.y);
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
     }
