@@ -142,6 +142,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
         Stamina.Instance.ResetStamina();
 
         gameOverPanel.SetActive(false);
+
+        foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+        {
+            if (obj.scene.buildIndex == -1)
+                Destroy(obj);
+        }
+
         SceneManager.LoadScene(SCENE_TEXT);
         SceneManager.sceneLoaded += OnSceneLoaded;
 
