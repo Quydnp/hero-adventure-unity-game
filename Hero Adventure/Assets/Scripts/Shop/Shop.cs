@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 {
     private Sprite _sprite = null;
 
-    public GameObject _currentPlayer; // Player hiện tại (đã được gán trong Inspector)
+    public GameObject _currentPlayer; // Current Player (in Inspector)
 
     public RuntimeAnimatorController newAnimatorController;
 
@@ -69,7 +69,7 @@ public class Shop : MonoBehaviour
 
     public void BuyKnightPlayer()
     {
-        if (EconomyManager.Instance.CurrentGold >= 1)
+        if (EconomyManager.Instance.CurrentGold >= 15)
         {
             if (PlayerController.Instance.IsKnightPlayer)
             {
@@ -81,7 +81,7 @@ public class Shop : MonoBehaviour
 
             PlayerController.Instance.setKnightProp(8f, 4f);
             PlayerController.Instance.IsKnightPlayer = true;
-            EconomyManager.Instance.MinusCurrentGold(5);
+            EconomyManager.Instance.MinusCurrentGold(15);
         }
         else
         {

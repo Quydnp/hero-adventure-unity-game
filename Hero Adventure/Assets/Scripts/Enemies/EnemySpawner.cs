@@ -14,8 +14,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _timeUntilSpawn;
 
-    private int _spawnCount = 0; // Đếm số lượng enemy đã spawn
-    private int _maxSpawnCount = 5; // Số lượng enemy tối đa trước khi hủy spawner
+    private int _spawnCount = 0; // Spawn enemies count
+    private int _maxSpawnCount = 5; // Max enemies to spawn
 
     void Awake()
     {
@@ -35,15 +35,15 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         Instantiate(_enemyPrefab, transform.position, Quaternion.identity); 
-        _spawnCount++; // Tăng bộ đếm số enemy đã spawn
+        _spawnCount++;
 
         if (_spawnCount >= _maxSpawnCount)
         {
-            Destroy(gameObject); // Xóa Spawner sau khi spawn đủ 10 enemy
+            Destroy(gameObject);
         }
         else
         {
-            SetTimeUntilSpawn(); // Reset bộ đếm spawn nếu chưa đủ số lượng
+            SetTimeUntilSpawn(); // Reset timer
         }
     }
 
