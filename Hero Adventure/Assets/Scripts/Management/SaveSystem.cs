@@ -8,6 +8,9 @@ public class SaveSystem : Singleton<SaveSystem>
 {
     private static string path = Application.dataPath + "/GameData/playerData.json";
 
+    [SerializeField]
+    public RuntimeAnimatorController newAnimatorController;
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,8 +35,9 @@ public class SaveSystem : Singleton<SaveSystem>
             currentStamina = Stamina.Instance.CurrentStamina,
             coin = EconomyManager.Instance.CurrentGold,
             point = ScoreManager.Instance.CurrentScore,
-            sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
-            weapons = weapons
+            sceneName = SceneManager.GetActiveScene().name,
+            weapons = weapons,
+            isKnightPlayer = PlayerController.Instance.IsKnightPlayer
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -79,6 +83,14 @@ public class SaveSystem : Singleton<SaveSystem>
                 {
                     ActiveInventory.Instance.SetInventoryActiveByIndex(i);
                 }
+            }
+            player.IsKnightPlayer = data.isKnightPlayer;
+            if (data.isKnightPlayer)
+            {
+                player.setKnightProp(8f, 4f);
+                GameObject currentPlayer = player.gameObject;
+                Animator animator = currentPlayer.GetComponent<Animator>();
+                animator.runtimeAnimatorController = newAnimatorController;
             }
         }
 
