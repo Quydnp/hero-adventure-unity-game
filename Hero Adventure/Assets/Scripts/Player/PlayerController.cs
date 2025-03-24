@@ -21,6 +21,14 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
+    public bool IsKnightPlayer { get; set; } = false;
+    public void setKnightProp(float newMoveSpeed,float newDashSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+        dashSpeed = newDashSpeed;
+        startingMoveSpeed = newMoveSpeed;
+        IsKnightPlayer = true;
+    }
 
     protected override void Awake() {
         base.Awake();
@@ -45,6 +53,7 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     private void OnDisable() {
+        if(playerControls != null)
         playerControls.Disable();
     }
 
@@ -120,6 +129,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void SaveGame()
     {
+       
         SaveSystem.Instance.Save(transform.position);
     }
 }

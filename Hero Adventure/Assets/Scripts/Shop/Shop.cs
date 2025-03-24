@@ -1,18 +1,19 @@
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Shop : MonoBehaviour
 {
     private Sprite _sprite = null;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject _currentPlayer; // Current Player (in Inspector)
+
+    public RuntimeAnimatorController newAnimatorController;
+
     public void BuyDamage()
     {
         Debug.Log("Click BuyDamage");
-
-        //EconomyManager.Instance.MinusCurrentGold(1);
-        // Stamina.Instance.SetMaxStaminaWithoutUpdateUI(Stamina.Instance.getMaxStamina() + 1);
-        // Debug.Log(Stamina.Instance.getMaxStamina() + "Max stamina");
     }
 
     public void BuyHealth()
@@ -49,6 +50,38 @@ public class Shop : MonoBehaviour
             ActiveInventory.Instance.IsBoughtBowWeapon = true;
             EconomyManager.Instance.MinusCurrentGold(5);
             ActiveInventory.Instance.SetInventoryActiveByIndex(1);
+        }
+        else
+        {
+            Debug.Log("Not enough gold");
+        }
+    }
+
+    public void setPlayerOldPrefab(GameObject oldPlayer)
+    {
+        _currentPlayer = oldPlayer;
+    }
+
+    public void SetGameAnimator(RuntimeAnimatorController animatorController)
+    {
+        newAnimatorController = animatorController;
+    }
+
+    public void BuyKnightPlayer()
+    {
+        if (EconomyManager.Instance.CurrentGold >= 15)
+        {
+            if (PlayerController.Instance.IsKnightPlayer)
+            {
+                Debug.Log("Already Knight Player");
+                return;
+            }
+            Animator animator = _currentPlayer.GetComponent<Animator>();
+            animator.runtimeAnimatorController = newAnimatorController;
+
+            PlayerController.Instance.setKnightProp(8f, 4f);
+            PlayerController.Instance.IsKnightPlayer = true;
+            EconomyManager.Instance.MinusCurrentGold(15);
         }
         else
         {
