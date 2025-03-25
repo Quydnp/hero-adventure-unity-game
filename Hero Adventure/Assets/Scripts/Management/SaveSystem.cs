@@ -94,6 +94,9 @@ public class SaveSystem : Singleton<SaveSystem>
             }
         }
 
+        // Camera follow player
+        CameraController.Instance.SetPlayerCameraFollow();
+
         // Pause the game after loading the scene
         PauseMenu pauseMenu = FindFirstObjectByType<PauseMenu>();
         if (pauseMenu != null)

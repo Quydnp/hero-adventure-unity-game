@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // tao bien luu audio source
+    // variables for audio source
 
     public AudioSource musicAudioSource;
     public AudioSource vfxAudioSource;
 
-    // tao bien luu audio clip 
+    // variables for audio clips 
 
     public AudioClip musicClip;
     public AudioClip coinClip;
