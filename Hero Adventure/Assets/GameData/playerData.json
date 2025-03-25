@@ -2,16 +2,17 @@
     "currentHealth": 3,
     "maxHealth": 3,
     "currentStamina": 3,
-    "coin": 0,
+    "coin": 4,
     "point": 0,
-    "sceneName": "Scene2",
+    "sceneName": "Scene1",
     "position": [
-        11.530000686645508,
-        -5.619999885559082,
+        1.7803549766540528,
+        2.3294053077697756,
         0.0
     ],
     "weapons": [
         "Sword",
         "Bow"
-    ]
+    ],
+    "isKnightPlayer": true
 }

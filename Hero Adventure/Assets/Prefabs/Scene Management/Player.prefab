@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6275826117419912570}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 3994223153802437664}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0036dadf6bc557b47bf9b0ff0feff696, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a1961f9acf453d4fb36d2940453d9ae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -259,6 +259,7 @@ MonoBehaviour:
   maxHealth: 3
   knockBackThrustAmount: 5
   damageRecoveryTime: 1
+  gameOverPanel: {fileID: 0}
 --- !u!114 &9176304803493268465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904f7fece9e516c46a0d21e12d654cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullStaminaImage: {fileID: 0}
-  emptyStaminaImage: {fileID: 0}
+  fullStaminaImage: {fileID: -7799045602948881875, guid: c43b70a047d7fba429e6de0d2ab2a497, type: 3}
+  emptyStaminaImage: {fileID: 4634418647378881802, guid: 77076acd1200953439cade7d5bc97f36, type: 3}
   timeBetweenStaminaRefresh: 3
 --- !u!114 &912963952487330746
 MonoBehaviour:

@@ -516,6 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edbf3fcd89c5b24fbb5263979795852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newAnimatorController: {fileID: 9100000, guid: 9a1961f9acf453d4fb36d2940453d9ae, type: 2}
+  currentPlayer: {fileID: 0}
 --- !u!224 &1780827261 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4576356616482503409, guid: 1c0423ae6e6c0cd4ea2b74d5ac0ca11f, type: 3}
