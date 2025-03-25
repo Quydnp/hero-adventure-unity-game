@@ -12,6 +12,7 @@ public class PlayerData
     public string sceneName;
     public float[] position; // [x, y, z]
     public string[] weapons;
+    public bool isKnightPlayer;
 
     public PlayerData(Vector3 position)
     {

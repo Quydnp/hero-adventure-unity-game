@@ -64,4 +64,26 @@ public class EnemyHealth : MonoBehaviour
             
         }
     }
+
+    public void OnDestroy()
+    {
+        var tag = gameObject.tag;
+        if (gameObject.CompareTag(tag))
+        {
+            var remainingSlimes = GameObject.FindWithTag(tag);
+
+            if (remainingSlimes == null)
+            {
+                GameObject areaExit = GameObject.FindWithTag("AreaExit");
+                if (areaExit != null)
+                {
+                    BoxCollider2D collider = areaExit.GetComponent<BoxCollider2D>();
+                    collider.isTrigger = true;
+                    GameObject exitArrow = areaExit.transform.GetChild(2).gameObject;
+                    exitArrow.SetActive(true);
+                }
+            }
+        }
+            
+    }
 }
