@@ -1,5 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +60,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         Transform childTransform = transform.GetChild(activeSlotIndexNum);
         InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
         WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
-        if(weaponInfo.weaponPrefab.name == "Bow")
+        if (weaponInfo.weaponPrefab.name == "Bow")
         {
 
 

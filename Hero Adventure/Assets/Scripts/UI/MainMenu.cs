@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -8,7 +7,7 @@ public class MainMenu : MonoBehaviour
     {
         foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
-            if (obj.scene.buildIndex == -1) 
+            if (obj.scene.buildIndex == -1)
                 Destroy(obj);
         }
         SceneManager.LoadScene("Scene1");
@@ -22,10 +21,10 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
                 Application.Quit();
-        #endif
+#endif
     }
 }

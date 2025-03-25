@@ -8,9 +8,9 @@ public class EconomyManager : Singleton<EconomyManager>
 
     const string COIN_AMOUNT_TEXT = "Gold Amount Text";
 
-    public int CurrentGold { get { return currentGold; }}
-    public void SetCurrentGold(int value) 
-    { 
+    public int CurrentGold { get { return currentGold; } }
+    public void SetCurrentGold(int value)
+    {
         currentGold = value;
         if (goldText == null)
         {
@@ -33,7 +33,7 @@ public class EconomyManager : Singleton<EconomyManager>
 
     public void MinusCurrentGold(int minus)
     {
-        if(minus > currentGold)
+        if (minus > currentGold)
         {
             return;
         }

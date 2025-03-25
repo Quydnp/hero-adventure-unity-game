@@ -14,9 +14,9 @@ public class Stamina : Singleton<Stamina>
     private int maxStamina = 3;
     const string STAMINA_CONTAINER_TEXT = "Stamina Container";
 
-    public void SetMaxStamina(int newMaxStamina) 
-    { 
-        maxStamina = newMaxStamina; 
+    public void SetMaxStamina(int newMaxStamina)
+    {
+        maxStamina = newMaxStamina;
         UpdateStaminaImages();
     }
 
@@ -24,7 +24,7 @@ public class Stamina : Singleton<Stamina>
     public void SetMaxStaminaWithoutUpdateUI(int newMaxStamina)
     {
         maxStamina = newMaxStamina;
-      
+
     }
 
 
@@ -33,9 +33,9 @@ public class Stamina : Singleton<Stamina>
     {
         return maxStamina;
     }
-    public void SetCurrentStamina(int newCurrentStamina) 
-    { 
-        CurrentStamina = newCurrentStamina; 
+    public void SetCurrentStamina(int newCurrentStamina)
+    {
+        CurrentStamina = newCurrentStamina;
         UpdateStaminaImages();
     }
 
@@ -52,7 +52,7 @@ public class Stamina : Singleton<Stamina>
 
     public void UseStamina()
     {
-        CurrentStamina --;
+        CurrentStamina--;
         UpdateStaminaImages();
     }
 

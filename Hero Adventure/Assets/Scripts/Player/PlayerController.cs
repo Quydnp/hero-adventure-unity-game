@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
-    
+
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -22,7 +22,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool facingLeft = false;
     private bool isDashing = false;
     public bool IsKnightPlayer { get; set; } = false;
-    public void setKnightProp(float newMoveSpeed,float newDashSpeed)
+    public void setKnightProp(float newMoveSpeed, float newDashSpeed)
     {
         moveSpeed = newMoveSpeed;
         dashSpeed = newDashSpeed;
@@ -30,7 +30,8 @@ public class PlayerController : Singleton<PlayerController>
         IsKnightPlayer = true;
     }
 
-    protected override void Awake() {
+    protected override void Awake()
+    {
         base.Awake();
 
         playerControls = new PlayerControls();
@@ -40,7 +41,8 @@ public class PlayerController : Singleton<PlayerController>
         knockback = GetComponent<Knockback>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         playerControls.Combat.Dash.performed += _ => Dash();
 
         startingMoveSpeed = moveSpeed;
@@ -48,20 +50,24 @@ public class PlayerController : Singleton<PlayerController>
         ActiveInventory.Instance.EquipStartingWeapon();
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         playerControls.Enable();
     }
 
-    private void OnDisable() {
-        if(playerControls != null)
-        playerControls.Disable();
+    private void OnDisable()
+    {
+        if (playerControls != null)
+            playerControls.Disable();
     }
 
-    private void Update() {
+    private void Update()
+    {
         PlayerInput();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         AdjustPlayerFacingDirection();
         Move();
     }
@@ -81,34 +87,42 @@ public class PlayerController : Singleton<PlayerController>
         return weaponCollider;
     }
 
-    private void PlayerInput() {
+    private void PlayerInput()
+    {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
         myAnimator.SetFloat("moveX", movement.x);
         myAnimator.SetFloat("moveY", movement.y);
     }
 
-    private void Move() {
+    private void Move()
+    {
         if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
 
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
-    private void AdjustPlayerFacingDirection() {
+    private void AdjustPlayerFacingDirection()
+    {
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
-        if (mousePos.x < playerScreenPoint.x) {
+        if (mousePos.x < playerScreenPoint.x)
+        {
             mySpriteRender.flipX = true;
             facingLeft = true;
-        } else {
+        }
+        else
+        {
             mySpriteRender.flipX = false;
             facingLeft = false;
         }
     }
 
-    private void Dash() {
-        if (!isDashing && Stamina.Instance.CurrentStamina > 0) {
+    private void Dash()
+    {
+        if (!isDashing && Stamina.Instance.CurrentStamina > 0)
+        {
             Stamina.Instance.UseStamina();
             isDashing = true;
             moveSpeed *= dashSpeed;
@@ -117,7 +131,8 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    private IEnumerator EndDashRoutine() {
+    private IEnumerator EndDashRoutine()
+    {
         float dashTime = .2f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);
@@ -129,7 +144,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void SaveGame()
     {
-       
+
         SaveSystem.Instance.Save(transform.position);
     }
 }

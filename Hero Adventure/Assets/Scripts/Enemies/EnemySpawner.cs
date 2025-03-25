@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(_enemyPrefab, transform.position, Quaternion.identity); 
+        Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
         _spawnCount++;
 
         if (_spawnCount >= _maxSpawnCount)

@@ -40,6 +40,6 @@ public class ScoreManager : Singleton<ScoreManager>
             scoreText = GameObject.Find(SCORE_AMOUNT_TEXT).GetComponent<TMP_Text>();
         }
 
-        scoreText.text =currentScore.ToString();
+        scoreText.text = currentScore.ToString();
     }
 }

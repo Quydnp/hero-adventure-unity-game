@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -47,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
             int scoreToAdd = 0;
             if (gameObject.CompareTag("Slime"))
             {
-                scoreToAdd = 1; 
+                scoreToAdd = 1;
             }
             else if (gameObject.CompareTag("Ghost"))
             {
@@ -59,9 +58,9 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             audioManager.PlaySFX(audioManager.killClip);
             GetComponent<PickUpSpawner>().DropItems();
-            
+
             Destroy(gameObject);
-            
+
         }
     }
 
@@ -84,6 +83,6 @@ public class EnemyHealth : MonoBehaviour
                 }
             }
         }
-            
+
     }
 }

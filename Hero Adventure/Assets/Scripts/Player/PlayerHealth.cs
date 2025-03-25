@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
@@ -26,8 +25,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public int CurrentHealth { get { return currentHealth; } }
     public int MaxHealth { get { return maxHealth; } }
-    public void SetMaxHealth(int newMaxHealth) 
-    { 
+    public void SetMaxHealth(int newMaxHealth)
+    {
         maxHealth = newMaxHealth;
         UpdateHealthSlider();
     }
@@ -38,8 +37,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
         //UpdateHealthSlider();
     }
 
-    public void SetCurrentHealth(int newCurrentHealth) 
-    { 
+    public void SetCurrentHealth(int newCurrentHealth)
+    {
         currentHealth = newCurrentHealth;
         UpdateHealthSlider();
     }
@@ -110,14 +109,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
         Debug.Log("DeathLoadSceneRoutine");
         yield return new WaitForSeconds(0.5f);
         ShowGameOverScreen();
-        
+
     }
     private void ShowGameOverScreen()
     {
         Time.timeScale = 0f;
 
         if (gameOverPanel != null)
-        {   Debug.Log("ShowGameOverScreen called");
+        {
+            Debug.Log("ShowGameOverScreen called");
             gameOverPanel.SetActive(true);
         }
     }
@@ -132,7 +132,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         isDead = false;
         currentHealth = maxHealth;
         UpdateHealthSlider();
-        
+
 
         GetComponent<Animator>().Rebind();
         GetComponent<Animator>().Update(0f);

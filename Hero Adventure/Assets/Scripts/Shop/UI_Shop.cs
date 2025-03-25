@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UI_Shop : MonoBehaviour
 {
@@ -21,11 +20,11 @@ public class UI_Shop : MonoBehaviour
 
     private void Start()
     {
-       
+
         var bowText = bow.Find("BowText").GetComponent<TextMeshProUGUI>().text;
-        
-        
+
+
     }
 
- 
+
 }
